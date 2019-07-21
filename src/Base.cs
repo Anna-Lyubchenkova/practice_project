@@ -29,6 +29,8 @@ namespace shop
         private BindingSource bs_pob = new BindingSource();     // для кнопки обновления информации об акциях
 
         Form form1;
+        NEW_Staff form_staff;
+        NEW_Client form_client;
         NEW_Item form_item;
 
         public Base(Form form_parent,bool admin, bool seller, bool client, int id, int post = 0)
@@ -50,6 +52,8 @@ namespace shop
             //инициализация всех таблиц в зависимости от учетной записи
             InitFields();
 
+            form_staff = new NEW_Staff(cnn, this);
+            form_client = new NEW_Client(cnn, this);
             form_item = new NEW_Item(cnn, this);
 
             //and make the options for each datagridview
@@ -118,6 +122,8 @@ namespace shop
                 from_range_label.Hide();
                 to_range_label.Hide();
 
+                staff_tab.Parent = null;
+
                 orders_box.SelectedItem = "all";
                 Init_orders();
                 sort_orders_box.Hide();
@@ -126,6 +132,7 @@ namespace shop
                 options.Parent = null;
 
                 order_sort_box.SelectedItem = "Item_Name";
+                Init_clients_lists();
 
                 Init_new_order_view();
 
@@ -144,6 +151,7 @@ namespace shop
                 general_orders.Text = "Мои заказы";
 
                 item_info.Parent = null;
+                Lists_cl_st.Parent = null;
 
                 Init_orders();
                 upd_order_button.Hide();
@@ -171,6 +179,9 @@ namespace shop
             {
                 Products.Parent = null;
                 Orders.Parent = null;
+
+                Init_clients_lists();
+                Init_staff_list();
             }
         }
 
@@ -197,6 +208,28 @@ namespace shop
             BindingSource bs = new BindingSource();
             SqlCommand cmd = SqlExec(command);
             ViewQuery(cmd, orders_list, bs);
+        }
+
+        public void Init_clients_lists()
+        {
+            BindingSource bs1 = new BindingSource(), bs2 = new BindingSource();
+            string command1 = "Select * FROM Clients_view", command2 = "Select * FROM Active_clients";
+            SqlCommand cmd1, cmd2;
+
+            cmd1 = SqlExec(command1);
+            ViewQuery(cmd1, clients_list, bs1);
+
+            cmd2 = SqlExec(command2);
+            ViewQuery(cmd2, clients_top_list, bs2);
+
+        }
+
+        public void Init_staff_list()
+        {
+            BindingSource bs = new BindingSource();
+            string command = "Select StaffID, Surname, Name, Age, Post, Salary FROM Staff_view";
+            SqlCommand cmd = SqlExec(command);
+            ViewQuery(cmd, staff_list, bs);
         }
 
         private void Init_basket_list()
@@ -464,6 +497,110 @@ namespace shop
             }
         }
 
+        private void delete_staff_button_Click(object sender, EventArgs e)
+        {
+            string ids = "";
+            int id = 0;
+
+            try
+            {
+                ids = delete_staff_textbox.Text.ToString();
+
+                if (ids.Length == 0)
+                    throw new WarningException("Не введен ID!");
+
+                id = Int16.Parse(ids);
+
+                //поищем данный staff_id в базе данных
+                SqlCommand sqlC = new SqlCommand("Select * FROM Staff_view Where StaffID = " + ids, cnn);
+                if (sqlC.ExecuteScalar().ToString() != ids)
+                {
+                    MessageBox.Show("Такого ID не существует!");
+                    return;
+                }
+
+                //если найден - удалить
+                string command = "DELETE FROM Staff Where StaffID = " + ids;
+                SqlCommand cmd = SqlExec(command);
+                MessageBox.Show("Успешное удаление сотрудника :)", "SUCCESS!");
+                Init_staff_list();
+
+            }
+            catch (WarningException ee)
+            {
+                MessageBox.Show(ee.Message, "Ошибка");
+            }
+            catch (FormatException ee)
+            {
+                MessageBox.Show("Некорректный ID!", "Ошибка");
+            }
+            catch (NullReferenceException ee)
+            {
+                MessageBox.Show("Такого ID не существует!", "Ошибка");
+            }
+        }
+
+        private void add_staff_button_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Перейти к внесению сотрудника?", "Новый сотрудник", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Hide();
+                form_staff.Show();
+            }
+        }
+
+        private void delete_client_button_Click(object sender, EventArgs e)
+        {
+            string ids = "";
+            int id = 0;
+
+            try
+            {
+                ids = delete_client_textbox.Text.ToString();
+
+                if (ids.Length == 0)
+                    throw new WarningException("Не введен ID!");
+
+                id = Int16.Parse(ids);
+
+                //поищем данный client_id в базе данных
+                SqlCommand sqlC = new SqlCommand("Select * FROM Clients_view Where ClientID = " + ids, cnn);
+                if (sqlC.ExecuteScalar().ToString() != ids)
+                {
+                    MessageBox.Show("Такого ID не существует!");
+                    return;
+                }
+
+                //если найден - удалить
+                string command = "DELETE FROM Clients Where ClientID = " + ids;
+                SqlCommand cmd = SqlExec(command);
+                MessageBox.Show("Успешное удаление клиента :)", "SUCCESS!");
+                Init_clients_lists();
+
+            }
+            catch (WarningException ee)
+            {
+                MessageBox.Show(ee.Message, "Ошибка");
+            }
+            catch (FormatException ee)
+            {
+                MessageBox.Show("Некорректный ID!", "Ошибка");
+            }
+            catch (NullReferenceException ee)
+            {
+                MessageBox.Show("Такого ID не существует!", "Ошибка");
+            }
+        }
+
+        private void add_client_button_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Перейти к внесению клиента?", "Новый клиент", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Hide();
+                form_client.Show();
+            }
+        }
+
         private void order_cancelled_button_Click(object sender, EventArgs e)
         {
             if (checked_order_id == 0)
@@ -479,6 +616,7 @@ namespace shop
                     string command = "DELETE FROM ClientOrder Where OrderID = " + order_id_textbox.Text.ToString() + ";";
                     SqlCommand cmd = SqlExec(command);
                     MessageBox.Show("Успешное удаление заказа! :)", "SUCCESS!");
+                    Init_clients_lists();
                     Init_orders();
                     order_id_textbox.Text = "";
                     checked_order_id = 0;

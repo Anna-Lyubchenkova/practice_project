@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Tabs_head = new System.Windows.Forms.TabControl();
             this.Products = new System.Windows.Forms.TabPage();
             this.Tabs_products = new System.Windows.Forms.TabControl();
@@ -89,6 +89,22 @@
             this.put_clientid_button = new System.Windows.Forms.Button();
             this.put_clientid_textbox = new System.Windows.Forms.TextBox();
             this.put_clientid_label = new System.Windows.Forms.Label();
+            this.Lists_cl_st = new System.Windows.Forms.TabPage();
+            this.Tabs_lists = new System.Windows.Forms.TabControl();
+            this.clients_tab = new System.Windows.Forms.TabPage();
+            this.delete_client_label = new System.Windows.Forms.Label();
+            this.delete_client_textbox = new System.Windows.Forms.TextBox();
+            this.delete_client_button = new System.Windows.Forms.Button();
+            this.add_client_button = new System.Windows.Forms.Button();
+            this.clients_top_list = new System.Windows.Forms.DataGridView();
+            this.clients_top_label = new System.Windows.Forms.Label();
+            this.clients_list = new System.Windows.Forms.DataGridView();
+            this.staff_tab = new System.Windows.Forms.TabPage();
+            this.delete_staff_label = new System.Windows.Forms.Label();
+            this.delete_staff_textbox = new System.Windows.Forms.TextBox();
+            this.delete_staff_button = new System.Windows.Forms.Button();
+            this.add_staff_button = new System.Windows.Forms.Button();
+            this.staff_list = new System.Windows.Forms.DataGridView();
             this.Disconnect_button = new System.Windows.Forms.Button();
             this.Tabs_head.SuspendLayout();
             this.Products.SuspendLayout();
@@ -107,12 +123,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.order_info_list)).BeginInit();
             this.create_order.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.basket_list)).BeginInit();
+            this.Lists_cl_st.SuspendLayout();
+            this.Tabs_lists.SuspendLayout();
+            this.clients_tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clients_top_list)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clients_list)).BeginInit();
+            this.staff_tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staff_list)).BeginInit();
             this.SuspendLayout();
             // 
             // Tabs_head
             // 
             this.Tabs_head.Controls.Add(this.Products);
             this.Tabs_head.Controls.Add(this.Orders);
+            this.Tabs_head.Controls.Add(this.Lists_cl_st);
             this.Tabs_head.Location = new System.Drawing.Point(13, 13);
             this.Tabs_head.Name = "Tabs_head";
             this.Tabs_head.SelectedIndex = 0;
@@ -231,23 +255,23 @@
             this.products_view.AllowUserToOrderColumns = true;
             this.products_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.products_view.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.products_view.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.products_view.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.products_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.products_view.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.products_view.DefaultCellStyle = dataGridViewCellStyle2;
             this.products_view.Location = new System.Drawing.Point(19, 20);
             this.products_view.Margin = new System.Windows.Forms.Padding(0);
             this.products_view.Name = "products_view";
@@ -758,6 +782,178 @@
             this.put_clientid_label.TabIndex = 0;
             this.put_clientid_label.Text = "Введите id клиента";
             // 
+            // Lists_cl_st
+            // 
+            this.Lists_cl_st.Controls.Add(this.Tabs_lists);
+            this.Lists_cl_st.Location = new System.Drawing.Point(4, 22);
+            this.Lists_cl_st.Name = "Lists_cl_st";
+            this.Lists_cl_st.Size = new System.Drawing.Size(766, 310);
+            this.Lists_cl_st.TabIndex = 4;
+            this.Lists_cl_st.Text = "Списки";
+            this.Lists_cl_st.UseVisualStyleBackColor = true;
+            // 
+            // Tabs_lists
+            // 
+            this.Tabs_lists.Controls.Add(this.clients_tab);
+            this.Tabs_lists.Controls.Add(this.staff_tab);
+            this.Tabs_lists.Location = new System.Drawing.Point(0, 3);
+            this.Tabs_lists.Name = "Tabs_lists";
+            this.Tabs_lists.SelectedIndex = 0;
+            this.Tabs_lists.Size = new System.Drawing.Size(766, 304);
+            this.Tabs_lists.TabIndex = 0;
+            // 
+            // clients_tab
+            // 
+            this.clients_tab.Controls.Add(this.delete_client_label);
+            this.clients_tab.Controls.Add(this.delete_client_textbox);
+            this.clients_tab.Controls.Add(this.delete_client_button);
+            this.clients_tab.Controls.Add(this.add_client_button);
+            this.clients_tab.Controls.Add(this.clients_top_list);
+            this.clients_tab.Controls.Add(this.clients_top_label);
+            this.clients_tab.Controls.Add(this.clients_list);
+            this.clients_tab.Location = new System.Drawing.Point(4, 22);
+            this.clients_tab.Name = "clients_tab";
+            this.clients_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.clients_tab.Size = new System.Drawing.Size(758, 278);
+            this.clients_tab.TabIndex = 0;
+            this.clients_tab.Text = "Клиенты";
+            this.clients_tab.UseVisualStyleBackColor = true;
+            // 
+            // delete_client_label
+            // 
+            this.delete_client_label.AutoSize = true;
+            this.delete_client_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delete_client_label.Location = new System.Drawing.Point(569, 65);
+            this.delete_client_label.Name = "delete_client_label";
+            this.delete_client_label.Size = new System.Drawing.Size(72, 13);
+            this.delete_client_label.TabIndex = 6;
+            this.delete_client_label.Text = "ID клиента";
+            this.delete_client_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // delete_client_textbox
+            // 
+            this.delete_client_textbox.Location = new System.Drawing.Point(650, 62);
+            this.delete_client_textbox.Name = "delete_client_textbox";
+            this.delete_client_textbox.Size = new System.Drawing.Size(101, 20);
+            this.delete_client_textbox.TabIndex = 5;
+            // 
+            // delete_client_button
+            // 
+            this.delete_client_button.Location = new System.Drawing.Point(650, 28);
+            this.delete_client_button.Name = "delete_client_button";
+            this.delete_client_button.Size = new System.Drawing.Size(102, 25);
+            this.delete_client_button.TabIndex = 4;
+            this.delete_client_button.Text = "Delete Client";
+            this.delete_client_button.UseVisualStyleBackColor = true;
+            this.delete_client_button.Click += new System.EventHandler(this.delete_client_button_Click);
+            // 
+            // add_client_button
+            // 
+            this.add_client_button.Location = new System.Drawing.Point(497, 28);
+            this.add_client_button.Name = "add_client_button";
+            this.add_client_button.Size = new System.Drawing.Size(102, 25);
+            this.add_client_button.TabIndex = 3;
+            this.add_client_button.Text = "Add Client";
+            this.add_client_button.UseVisualStyleBackColor = true;
+            this.add_client_button.Click += new System.EventHandler(this.add_client_button_Click);
+            // 
+            // clients_top_list
+            // 
+            this.clients_top_list.AllowUserToDeleteRows = false;
+            this.clients_top_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.clients_top_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.clients_top_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clients_top_list.Location = new System.Drawing.Point(497, 103);
+            this.clients_top_list.Name = "clients_top_list";
+            this.clients_top_list.ReadOnly = true;
+            this.clients_top_list.Size = new System.Drawing.Size(255, 137);
+            this.clients_top_list.TabIndex = 2;
+            // 
+            // clients_top_label
+            // 
+            this.clients_top_label.AutoSize = true;
+            this.clients_top_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clients_top_label.Location = new System.Drawing.Point(569, 87);
+            this.clients_top_label.Name = "clients_top_label";
+            this.clients_top_label.Size = new System.Drawing.Size(119, 13);
+            this.clients_top_label.TabIndex = 1;
+            this.clients_top_label.Text = "Активные клиенты";
+            // 
+            // clients_list
+            // 
+            this.clients_list.AllowUserToDeleteRows = false;
+            this.clients_list.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.clients_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.clients_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clients_list.Location = new System.Drawing.Point(44, 28);
+            this.clients_list.Name = "clients_list";
+            this.clients_list.ReadOnly = true;
+            this.clients_list.Size = new System.Drawing.Size(413, 213);
+            this.clients_list.TabIndex = 0;
+            // 
+            // staff_tab
+            // 
+            this.staff_tab.Controls.Add(this.delete_staff_label);
+            this.staff_tab.Controls.Add(this.delete_staff_textbox);
+            this.staff_tab.Controls.Add(this.delete_staff_button);
+            this.staff_tab.Controls.Add(this.add_staff_button);
+            this.staff_tab.Controls.Add(this.staff_list);
+            this.staff_tab.Location = new System.Drawing.Point(4, 22);
+            this.staff_tab.Name = "staff_tab";
+            this.staff_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.staff_tab.Size = new System.Drawing.Size(758, 278);
+            this.staff_tab.TabIndex = 1;
+            this.staff_tab.Text = "Сотрудники";
+            this.staff_tab.UseVisualStyleBackColor = true;
+            // 
+            // delete_staff_label
+            // 
+            this.delete_staff_label.AutoSize = true;
+            this.delete_staff_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.delete_staff_label.Location = new System.Drawing.Point(633, 249);
+            this.delete_staff_label.Name = "delete_staff_label";
+            this.delete_staff_label.Size = new System.Drawing.Size(105, 13);
+            this.delete_staff_label.TabIndex = 4;
+            this.delete_staff_label.Text = "Staff ID to delete";
+            // 
+            // delete_staff_textbox
+            // 
+            this.delete_staff_textbox.Location = new System.Drawing.Point(515, 246);
+            this.delete_staff_textbox.Name = "delete_staff_textbox";
+            this.delete_staff_textbox.Size = new System.Drawing.Size(98, 20);
+            this.delete_staff_textbox.TabIndex = 3;
+            // 
+            // delete_staff_button
+            // 
+            this.delete_staff_button.Location = new System.Drawing.Point(359, 243);
+            this.delete_staff_button.Name = "delete_staff_button";
+            this.delete_staff_button.Size = new System.Drawing.Size(132, 24);
+            this.delete_staff_button.TabIndex = 2;
+            this.delete_staff_button.Text = "Delete Staff";
+            this.delete_staff_button.UseVisualStyleBackColor = true;
+            this.delete_staff_button.Click += new System.EventHandler(this.delete_staff_button_Click);
+            // 
+            // add_staff_button
+            // 
+            this.add_staff_button.Location = new System.Drawing.Point(144, 243);
+            this.add_staff_button.Name = "add_staff_button";
+            this.add_staff_button.Size = new System.Drawing.Size(132, 24);
+            this.add_staff_button.TabIndex = 1;
+            this.add_staff_button.Text = "Add Staff";
+            this.add_staff_button.UseVisualStyleBackColor = true;
+            this.add_staff_button.Click += new System.EventHandler(this.add_staff_button_Click);
+            // 
+            // staff_list
+            // 
+            this.staff_list.AllowUserToDeleteRows = false;
+            this.staff_list.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.staff_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.staff_list.Location = new System.Drawing.Point(42, 34);
+            this.staff_list.Name = "staff_list";
+            this.staff_list.ReadOnly = true;
+            this.staff_list.Size = new System.Drawing.Size(680, 192);
+            this.staff_list.TabIndex = 0;
+            // 
             // Disconnect_button
             // 
             this.Disconnect_button.Location = new System.Drawing.Point(708, 351);
@@ -803,6 +999,15 @@
             this.create_order.ResumeLayout(false);
             this.create_order.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.basket_list)).EndInit();
+            this.Lists_cl_st.ResumeLayout(false);
+            this.Tabs_lists.ResumeLayout(false);
+            this.clients_tab.ResumeLayout(false);
+            this.clients_tab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clients_top_list)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clients_list)).EndInit();
+            this.staff_tab.ResumeLayout(false);
+            this.staff_tab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.staff_list)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -816,6 +1021,7 @@
         private System.Windows.Forms.DataGridView products_view;
         private System.Windows.Forms.TabPage options;
         private System.Windows.Forms.TabPage Orders;
+        private System.Windows.Forms.TabPage Lists_cl_st;
         private System.Windows.Forms.Button Disconnect_button;
         private System.Windows.Forms.DataGridView product_option_list;
         private System.Windows.Forms.Button product_option_button;
@@ -844,6 +1050,21 @@
         private System.Windows.Forms.Label order_sort_label;
         private System.Windows.Forms.ComboBox order_sort_box;
         private System.Windows.Forms.Button upd_order_button;
+        private System.Windows.Forms.TabControl Tabs_lists;
+        private System.Windows.Forms.TabPage clients_tab;
+        private System.Windows.Forms.TabPage staff_tab;
+        private System.Windows.Forms.DataGridView clients_list;
+        private System.Windows.Forms.DataGridView clients_top_list;
+        private System.Windows.Forms.Label clients_top_label;
+        private System.Windows.Forms.DataGridView staff_list;
+        private System.Windows.Forms.Button delete_client_button;
+        private System.Windows.Forms.Button add_client_button;
+        private System.Windows.Forms.Label delete_staff_label;
+        private System.Windows.Forms.TextBox delete_staff_textbox;
+        private System.Windows.Forms.Button delete_staff_button;
+        private System.Windows.Forms.Button add_staff_button;
+        private System.Windows.Forms.Label delete_client_label;
+        private System.Windows.Forms.TextBox delete_client_textbox;
         private System.Windows.Forms.Button order_cancelled_button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label basket_label;

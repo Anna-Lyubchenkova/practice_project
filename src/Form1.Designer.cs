@@ -35,6 +35,7 @@
             this.label_login = new System.Windows.Forms.Label();
             this.label_password = new System.Windows.Forms.Label();
             this.Exit_button = new System.Windows.Forms.Button();
+            this.sign_up_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Login_button
@@ -101,11 +102,22 @@
             this.Exit_button.UseVisualStyleBackColor = true;
             this.Exit_button.Click += new System.EventHandler(this.Exit_button_Click);
             // 
+            // sign_up_button
+            // 
+            this.sign_up_button.Location = new System.Drawing.Point(109, 200);
+            this.sign_up_button.Name = "sign_up_button";
+            this.sign_up_button.Size = new System.Drawing.Size(75, 23);
+            this.sign_up_button.TabIndex = 7;
+            this.sign_up_button.Text = "Sign Up";
+            this.sign_up_button.UseVisualStyleBackColor = true;
+            this.sign_up_button.Click += new System.EventHandler(this.sign_up_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.sign_up_button);
             this.Controls.Add(this.Exit_button);
             this.Controls.Add(this.label_password);
             this.Controls.Add(this.label_login);
@@ -130,6 +142,7 @@
         private System.Windows.Forms.Label label_login;
         private System.Windows.Forms.Label label_password;
         private System.Windows.Forms.Button Exit_button;
+        private System.Windows.Forms.Button sign_up_button;
     }
 }
 

@@ -21,6 +21,8 @@ namespace shop
         private string user;
         private string password;
 
+        NEW_Client form_client;
+
         public Form1()
         {
             InitializeComponent();
@@ -55,6 +57,12 @@ namespace shop
         private void CloseConnect()
         {
             cnn.Close();
+        }
+
+        private void OpenConnectSignUp()
+        {
+            cnn = new SqlConnection(connectionAdress);
+            cnn.Open();
         }
 
         private void OpenConnect(bool is_admin)
@@ -150,5 +158,15 @@ namespace shop
             return new Tuple<int,int,int>(t1,t2,t3);
         }
 
+        private void sign_up_button_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Перейти к регистрации клиента?", "Новый клиент", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                OpenConnectSignUp();
+                form_client = new NEW_Client(cnn, this);
+                this.Hide();
+                form_client.Show();
+            }
+        }
     }
 }
